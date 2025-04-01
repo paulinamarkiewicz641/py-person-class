@@ -10,10 +10,7 @@ class Person:
 
 @staticmethod
 def create_person_list(people: list) -> list:
-    persons = []
-    for person_dict in people
-        person = Person(person_dict["name"], person_dict["age"])
-        persons.append(person)
+    persons = [Person(person_dict["name"], person_dict["age"]) for person_dict in people]
         
 
     for person_dict in people:
