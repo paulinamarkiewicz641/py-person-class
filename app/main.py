@@ -13,9 +13,8 @@ def create_person_list(people: list) -> list:
         
     for person_dict in people:
         person = Person.people[person_dict["name"]]
-        spouse_key = "wife" if "wife" in person_dict else "husband"
-        spouse_name = person_dict.get(spouse_key)
-        if spouse_name:
-            setattr(person, spouse_key, Person.people[spouse_name])
+        spouse_key = person_dict.get("wife") or person_dict.get("husband")
+        if spouse_key:
+            setattr(person, "wife" if "wife" in person_dict else "husband", Person.people[spouse_key])
         
     return persons
